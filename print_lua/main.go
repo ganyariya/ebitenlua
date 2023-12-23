@@ -36,7 +36,7 @@ func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeigh
 
 func init() {
 	luaState := lua.NewState()
-	if err := luaState.DoFile("entry/talk.lua"); err != nil {
+	if err := luaState.DoFile("print_lua/talk.lua"); err != nil {
 		log.Fatal(err)
 	}
 	coroutine, _ := luaState.NewThread()
