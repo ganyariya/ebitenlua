@@ -2,7 +2,10 @@ module github.com/ganyariya/ebitenlua
 
 go 1.21.5
 
-require github.com/hajimehoshi/ebiten/v2 v2.6.3
+require (
+	github.com/hajimehoshi/ebiten/v2 v2.6.3
+	github.com/yuin/gopher-lua v1.1.1
+)
 
 require (
 	github.com/ebitengine/purego v0.5.0 // indirect
