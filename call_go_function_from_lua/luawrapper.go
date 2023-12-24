@@ -38,12 +38,15 @@ func NewLuaWrapper() *LuaWrapper {
 	if err := luaState.DoFile("call_go_function_from_lua/talk.lua"); err != nil {
 		log.Fatal(err)
 	}
+	// if err := luaState.DoFile("talk.lua"); err != nil {
+	// 	log.Fatal(err)
+	// }
 	luaMainThread, _ := luaState.NewThread()
 	luaMainEntryFunction := luaState.GetGlobal("MainEntry").(*lua.LFunction)
 
 	luaState.SetGlobal("call_go_double", luaState.NewFunction(Double))
 	luaState.SetGlobal("call_go_calculate", luaState.NewFunction(Calculate))
-	luaState.SetGlobal("call_go_set_image", luaState.NewFunction(SetImage))
+	luaState.SetGlobal("call_go_display_image", luaState.NewFunction(SetImage))
 
 	return &LuaWrapper{
 		luaState:             luaState,
