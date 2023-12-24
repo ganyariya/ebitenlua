@@ -2,7 +2,8 @@
     "Lua.diagnostics.globals": [
         "call_go_double",
         "call_go_calculate",
-        "call_go_set_image"
+        "call_go_set_image",
+        "call_go_display_image"
     ],
     "Lua.diagnostics.disable": [
         "unused-function"

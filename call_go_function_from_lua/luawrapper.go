@@ -35,7 +35,7 @@ func SetImage(luaState *lua.LState) int {
 
 func NewLuaWrapper() *LuaWrapper {
 	luaState := lua.NewState()
-	if err := luaState.DoFile("call_go_function_from_lua/preload.lua"); err != nil {
+	if err := luaState.DoFile("call_go_function_from_lua/lib/preload.lua"); err != nil {
 		log.Fatal(err)
 	}
 	// if err := luaState.DoFile("talk.lua"); err != nil {

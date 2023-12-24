@@ -7,6 +7,11 @@ local function displayImage(i, isRoutine)
     end
 end
 
+local function hello(msg)
+    print("hello", msg)
+end
+
 return {
     displayImagge = displayImage,
+    hello = hello
 }
