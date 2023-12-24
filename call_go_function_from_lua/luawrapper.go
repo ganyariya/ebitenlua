@@ -35,14 +35,17 @@ func SetImage(luaState *lua.LState) int {
 
 func NewLuaWrapper() *LuaWrapper {
 	luaState := lua.NewState()
-	if err := luaState.DoFile("call_go_function_from_lua/talk.lua"); err != nil {
+	if err := luaState.DoFile("call_go_function_from_lua/preload.lua"); err != nil {
 		log.Fatal(err)
 	}
 	// if err := luaState.DoFile("talk.lua"); err != nil {
 	// 	log.Fatal(err)
 	// }
+
 	luaMainThread, _ := luaState.NewThread()
-	luaMainEntryFunction := luaState.GetGlobal("MainEntry").(*lua.LFunction)
+	luaMainThread.DoFile("call_go_function_from_lua/talk.lua")
+	// luaMainEntryFunction := luaState.GetGlobal("MainEntry").(*lua.LFunction)
+	luaMainEntryFunction := luaMainThread.GetGlobal("MainEntry").(*lua.LFunction)
 
 	luaState.SetGlobal("call_go_double", luaState.NewFunction(Double))
 	luaState.SetGlobal("call_go_calculate", luaState.NewFunction(Calculate))

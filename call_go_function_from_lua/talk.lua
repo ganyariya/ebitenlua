@@ -1,4 +1,4 @@
-Image = require("call_go_function_from_lua.image")
+-- Image = require("call_go_function_from_lua.image")
 -- local function setImage(i)
 --     call_go_set_image(i)
 --     coroutine.yield(100 + i)
